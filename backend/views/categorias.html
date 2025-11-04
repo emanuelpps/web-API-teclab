@@ -4,22 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agregar Categoria</title>
+    <link rel="stylesheet" href="../class/css/formStyles.css" />
   </head>
-  <body>
+  <body id="form-page">
     <section>
       <h2>Dar de alta Categoria</h2>
     </section>
     <section class="form_container">
       <form>
         <div class="label_input_container">
-          <label>Nombre de Categoria</label
-          ><input type="text" id="add-catergory-input" name="addCatergory" />
+          <label>Nombre de Categoria:</label
+          ><input type="text" id="add-name-input" name="addCatergory" />
         </div>
         <div class="add_button_container">
-          <button>Agregar Categoria</button>
+          <a href="#popup" class="add-btn">Agregar Categoria</a>
         </div>
-        <div class="popup">
-          <div><button>Cancelar</button><button>Guardar</button></div>
+        <div class="popup" id="popup">
+          <div class="popup-content">
+            <p>¿Deseas guardar la nueva categoría?</p>
+            <a href="#">Cancelar</a>
+            <button>Guardar</button>
+          </div>
         </div>
       </form>
     </section>
