@@ -11,30 +11,37 @@
       <h2>Dar de alta Producto</h2>
     </section>
     <section class="form_container">
-      <form>
+      <form id="form_productos">
         <div class="label_input_container">
           <label>Nombre de Producto:</label
-          ><input type="text" id="add-name-input" name="addProduct" />
+          ><input type="text" id="product_name" name="addProduct" />
         </div>
         <div class="label_input_container">
           <label>Categoria del Producto:</label
-          ><input type="text" id="add-name-input" name="addProduct" />
+          ><input type="text" id="product_category" name="addProduct" />
+        </div>
+        <div class="label_input_container">
+          <label>Descripcion</label
+          ><input type="text" id="product_description" name="addProduct" />
         </div>
         <div class="label_input_container">
           <label>Precio:</label
-          ><input type="text" id="add-name-input" name="addProduct" />
+          ><input type="text" id="product_price" name="addProduct" />
         </div>
         <div class="add_button_container">
-          <a href="#popup" class="add-btn">Agregar Producto</a>
+          <!-- <a href="#popup" class="add-btn">Agregar Producto</a>-->
+          <button type="submit" class="add-btn">Agregar Producto</button>
         </div>
-        <div class="popup" id="popup">
+        <!--       <div class="popup" id="popup">
           <div class="popup-content">
-            <p>¿Deseas guardar la nueva producto?</p>
+            <p>¿Deseas guardar la nuevo producto?</p>
             <a href="#">Cancelar</a>
             <button>Guardar</button>
           </div>
         </div>
-      </form>
+      --></form>
     </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/validations.js" type="text/javascript"></script>
   </body>
 </html>

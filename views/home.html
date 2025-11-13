@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mi Proyecto — Inicio</title>
     <link rel="stylesheet" href="/class/css/estilos.css" />
     <style>
-        /* Estilos mínimos para presentación */
-        :root { --bg:#fff; --muted:#666; --accent:#0a74da; }
-        body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;background:var(--bg);color:#111}
-        header,footer{background:#f7f7f7;padding:1rem}
-        .container{max-width:900px;margin:0 auto;padding:1rem}
-        nav a{margin-right:1rem;color:var(--accent);text-decoration:none}
-        h1,h2{margin:0 0 .5rem 0}
-        footer p{margin:0;color:var(--muted);font-size:.9rem}
+      :root {
+        --bg: #fff;
+        --muted: #666;
+        --accent: #0a74da;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial;
+        line-height: 1.5;
+        background: var(--bg);
+        color: #111;
+      }
+      header,
+      footer {
+        background: #f7f7f7;
+        padding: 1rem;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      nav a {
+        margin-right: 1rem;
+        color: var(--accent);
+        text-decoration: none;
+      }
+      h1,
+      h2 {
+        margin: 0 0 0.5rem 0;
+      }
+      footer p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <h1>Mi Proyecto</h1>
-            <nav aria-label="Navegación principal">
-                <a href="/">Inicio</a>
-                <a href="/about">Acerca</a>
-                <a href="/contact">Contacto</a>
-            </nav>
-        </div>
+      <div class="container">
+        <h1>Mi Proyecto</h1>
+        <nav aria-label="Navegación principal">
+          <a href="/">Inicio</a>
+          <a href="/about">Acerca</a>
+          <a href="/contact">Contacto</a>
+        </nav>
+      </div>
     </header>
 
     <main class="container" role="main">
-        <section>
-            <h2>Bienvenido</h2>
-            <p>Plantilla HTML básica para comenzar tu proyecto. Edita este archivo en <code>/views/home.html</code>.</p>
-        </section>
+      <section>
+        <h2>Bienvenido</h2>
+        <p>
+          Plantilla HTML básica para comenzar tu proyecto. Edita este archivo en
+          <code>/views/home.html</code>.
+        </p>
+      </section>
 
-        <section>
-            <h3>Características</h3>
-            <ul>
-                <li>Estructura semántica (header, main, footer)</li>
-                <li>Meta viewport para móviles</li>
-                <li>Espacio para CSS y JS</li>
-            </ul>
-        </section>
+      <section>
+        <h3>Características</h3>
+        <ul>
+          <li>Estructura semántica (header, main, footer)</li>
+          <li>Meta viewport para móviles</li>
+          <li>Espacio para CSS y JS</li>
+        </ul>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; <span id="year"></span> Mi Proyecto</p>
-        </div>
+      <div class="container">
+        <p>&copy; <span id="year"></span> Mi Proyecto</p>
+      </div>
     </footer>
-
-    <script>
-        // Inserta el año actual en el pie
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </body>
 </html>
