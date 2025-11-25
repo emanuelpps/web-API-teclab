@@ -16,4 +16,22 @@ class DataBase
             die("Error en la conexion: " . $e->getMessage());
         }
     }
+
+    public function insert($sql, $params = [])
+    {
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute($params);
+    }
+
+    public function update($sql, $params = [])
+    {
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute($params);
+    }
+
+    public function delete($sql, $params = [])
+    {
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute($params);
+    }
 }
