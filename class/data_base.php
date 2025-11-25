@@ -7,7 +7,13 @@ class DataBase
     private $db = "miproyecto";
     private $conn;
 
-    public function connect()
+    public function __construct()
+    {
+        $this->connect();
+    }
+
+
+    private function connect()
     {
         try {
             $this->conn = new PDO("mysql:host=$this->host;dbname=$this->db;charset=utf8", $this->user, $this->pass);
