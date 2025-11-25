@@ -34,4 +34,11 @@ class DataBase
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute($params);
     }
+
+    public function select($sql, $params = [])
+    {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
