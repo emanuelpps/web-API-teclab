@@ -38,13 +38,14 @@ body {
 }
 
 /* ========================================
-   HEADER MODERNO
+   HEADER
 ======================================== */
 .header {
     background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-    padding: 2rem 0;
+    padding: 1rem 0;
     box-shadow: var(--shadow-xl);
     position: relative;
+    min-height: 50px;
     overflow: hidden;
 }
 
@@ -59,8 +60,8 @@ body {
     opacity: 0.5;
 }
 
-.header img {
-    max-width: 180px;
+.logo {
+    max-width: 80px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -68,6 +69,7 @@ body {
     position: relative;
     z-index: 1;
     transition: var(--transition);
+    border-radius: 50px;
 }
 
 .header img:hover {
@@ -77,8 +79,8 @@ body {
 .header h1 {
     color: var(--white);
     text-align: center;
-    margin-top: 1rem;
-    font-size: 2.5rem;
+    margin-top: 0.5rem;  /* Reducido de 1rem a 0.5rem */
+    font-size: 1.5rem;  /* Reducido de 2.5rem a 1.5rem */
     font-weight: 800;
     letter-spacing: -0.5px;
     position: relative;
@@ -91,7 +93,7 @@ body {
 }
 
 /* ========================================
-   CONTAINER MODERNO
+   CONTAINER
 ======================================== */
 .container {
     max-width: 900px;
@@ -160,7 +162,7 @@ body {
 }
 
 /* ========================================
-   FORMULARIOS MODERNOS
+   FORMULARIOS
 ======================================== */
 form {
     display: flex;
@@ -205,7 +207,7 @@ textarea {
 }
 
 /* ========================================
-   BOTONES MODERNOS
+   BOTONES
 ======================================== */
 button {
     padding: 0.9rem 2rem;

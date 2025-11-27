@@ -39,7 +39,7 @@ class Productos
     public function guardar()
     {
         $sql = "INSERT INTO productos (nombre, categoria, precio) 
-                VALUES (?, ?, ?, ?)";
+                VALUES (?, ?, ?)";
         $params = [$this->nombre, $this->categoria, $this->precio];
         return $this->db->insert($sql, $params);
     }
