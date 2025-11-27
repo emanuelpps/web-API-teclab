@@ -51,8 +51,6 @@ class Productos
         $params = [$id];
         return $this->db->delete($sql, $params);
     }
-
-    // Api4 JOIN entre la tabla productos y categoria
     public function listarConCategorias()
     {
         $db = new DataBase();
