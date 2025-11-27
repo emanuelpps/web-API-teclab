@@ -1,7 +1,7 @@
 <?php
-require_once "data_base.php";
+require_once 'data_base.php';
 
-class Categorias
+class Productos
 {
     private $id;
     private $nombre;
@@ -14,10 +14,12 @@ class Categorias
         $this->db = new DataBase();
     }
 
+    // --- Setters ---
     public function setId($id)
     {
         $this->id = $id;
     }
+
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -33,18 +35,30 @@ class Categorias
         $this->precio = $precio;
     }
 
+    // --- Guardar producto ---
     public function guardar()
     {
-        $sql = "INSERT INTO productos (nombre, categoria, precio)
-        VALUES (?,?,?)";
+        $sql = "INSERT INTO productos (nombre, categoria, precio) 
+                VALUES (?, ?, ?, ?)";
         $params = [$this->nombre, $this->categoria, $this->precio];
         return $this->db->insert($sql, $params);
     }
 
+    // --- Eliminar producto ---
     public function eliminar($id)
     {
         $sql = "DELETE FROM productos WHERE id = ?";
         $params = [$id];
         return $this->db->delete($sql, $params);
+    }
+
+    // Api4 JOIN entre la tabla productos y categoria
+    public function listarConCategorias()
+    {
+        $db = new DataBase();
+        $sql = "SELECT p.id, p.nombre, p.precio , c.nombre AS categoria 
+                FROM productos p 
+                INNER JOIN categoria c ON p.categoria = c.id";
+        return $db->select($sql);
     }
 }

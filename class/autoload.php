@@ -1,12 +1,10 @@
 <?php
-
-spl_autoload_register(function($clase) {
+spl_autoload_register(function ($clase) {
     $ruta = __DIR__ . '/' . $clase . '.php';
     if (file_exists($ruta)) {
         require_once $ruta;
     }
 });
-
 
 if (isset($_POST['action'])) {
     include_once 'data_base.php';
@@ -15,27 +13,26 @@ if (isset($_POST['action'])) {
 
     $db = new DataBase();
 
-    switch($_POST['action']) {
+    switch ($_POST['action']) {
         case 'listarCategorias':
             $categorias = $db->select("SELECT * FROM categoria");
             foreach ($categorias as $cat) {
                 echo "<tr>
-                        <td>{$cat['id']}</td>
-                        <td>{$cat['nombre']}</td>
-                        </tr>";
+                    <td>{$cat['id']}</td>
+                    <td>{$cat['nombre']}</td>
+                </tr>";
             }
             break;
 
-        case "listarProductos":
+        case 'listarProductos':
             $productos = $db->select("SELECT * FROM productos");
-            foreach ($productos as $producto) {
+            foreach ($productos as $prod) {
                 echo "<tr>
-                        <td>{$producto['id']}</td>
-                        <td>{$producto['nombre']}</td>
-                        <td>{$producto['nombre']}</td>
-                        <td>{$producto['categoria']}</td>
-                        <td>{$producto['precio']}</td>
-                        </tr>";
+                    <td>{$prod['id']}</td>
+                    <td>{$prod['nombre']}</td>
+                    <td>{$prod['categoria']}</td>
+                    <td>{$prod['precio']}</td>
+                </tr>";
             }
             break;
     }

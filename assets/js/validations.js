@@ -1,26 +1,29 @@
-$("#form_categorias").submit(function () {
-  let name = $("#category_name").val();
+$("#form_categorias").submit(function (e) {
+  let name = $("#nombre").val();
 
   if ($.trim(name) === "") {
-    alert("el nombre esta vacio \nEmanuel Pages");
+    alert("El nombre está vacío\nSantiago Di Colantonio");
+    e.preventDefault();
+    return false;
   }
 });
 
-$("#form_productos").submit(function () {
-  let productName = $("#product_name").val();
-  let productCategory = $("#product_category").val();
-  let productPrice = $("product_price").val();
-  let productDescription = $("product_description").val();
+$("#form_productos").submit(function (e) {
+  let productName = $("#nombre").val();
+  let productCategory = $("#categoria").val();
+  let productPrice = $("#precio").val();
+  let productDescription = $("#descripcion").val();
 
   if (
-    productName === "" ||
-    productCategory === "" ||
-    productPrice === "" ||
-    productDescription === ""
+    $.trim(productName) === "" ||
+    $.trim(productCategory) === "" ||
+    $.trim(productPrice) === "" ||
+    $.trim(productDescription) === ""
   ) {
-    alert("Por favor, completá todos los campos. \nEmanuel Pages");
-    return;
+    alert("Por favor, completá todos los campos.\nSantiago Di Colantonio");
+    e.preventDefault();
+    return false;
   }
 
-  alert("Formulario válido ✅ \nEmanuel Pages");
+  alert("Formulario válido ✅\nSantiago Di Colantonio");
 });

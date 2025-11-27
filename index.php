@@ -1,14 +1,22 @@
 <?php
-// index.php: incluye/lee index.html en el mismo directorio
-$indexFile = __DIR__ . '/views/home.html';
-
-if (is_readable($indexFile)) {
-    header('Content-Type: text/html; charset=utf-8');
-    readfile($indexFile);
+// Redirigir al home
+if (!isset($_POST['action'])) {
+    header("Location: views/home.html");
+    exit();
+}
+require_once 'class/autoload.php';
+$productos = new Productos();
+$listado = $productos->listarConCategorias();
+if (isset($_POST['action']) && $_POST['action'] === 'listarHome') {
+    foreach ($listado as $prod) {
+        echo "
+<div class='col-12 col-md-6 col-lg-3'>
+<div class='product-card'>
+<h5><strong>{$prod['nombre']}</strong></h5>
+<p class='text-muted'>{$prod['categoria']}</p>
+<p><strong>$ {$prod['precio']}</strong></p>
+</div>
+</div>";
+    }
     exit;
 }
-
-// Si no existe, devolver 404 simple
-http_response_code(404);
-echo '<!doctype html><html><head><meta charset="utf-8"><title>404</title></head><body><h1>404 - index.html no encontrado</h1></body></html>';
-?>
