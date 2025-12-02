@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="header">
-      <img src="../../assets/img/logo.webp" alt="Online Deli" class="logo"/>
+      <img src="../../assets/img/logo.webp" alt="Online Deli" class="logo" />
     </div>
 
     <div class="container">
@@ -25,7 +25,9 @@
         <input type="number" id="precio" name="precio" /><br /><br />
 
         <label for="categoria">Categoría</label><br />
-        <input type="number" id="categoria" name="categoria" /><br /><br />
+        <select id="categoria" name="categoria" required>
+          <option value="">Seleccione una categoría</option></select
+        ><br /><br />
 
         <button type="reset">Cancelar</button>
         <button type="submit">Guardar</button>
@@ -39,6 +41,27 @@
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
+    <script>
+      // Cargar categorías al cargar la página
+      $(document).ready(function () {
+        $.ajax({
+          url: "../../class/autoload.php",
+          method: "POST",
+          data: { action: "obtenerCategorias" },
+          dataType: "json",
+          success: function (categorias) {
+            categorias.forEach(function (cat) {
+              $("#categoria").append(
+                `<option value="${cat.id}">${cat.nombre}</option>`
+              );
+            });
+          },
+          error: function () {
+            alert("Error al cargar las categorías");
+          },
+        });
+      });
+    </script>
     <script
       src="../../assets/js/validaciones.js"
       type="text/javascript"

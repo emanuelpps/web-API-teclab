@@ -28,7 +28,7 @@ class Categorias
     // --- Método eliminar ---
     public function eliminar($id)
     {
-        $sql = "DELETE FROM categorias WHERE id = ?";
+        $sql = "DELETE FROM categoria WHERE id = ?";
         $params = [$id];
         return $this->db->delete($sql, $params);
     }

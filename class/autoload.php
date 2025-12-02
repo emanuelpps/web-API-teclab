@@ -25,13 +25,16 @@ if (isset($_POST['action'])) {
             break;
 
         case 'listarProductos':
-            $productos = $db->select("SELECT * FROM productos");
+            $sql = "SELECT p.id, p.nombre, c.nombre AS categoria, p.precio 
+                    FROM productos p 
+                    INNER JOIN categoria c ON p.id_categoria = c.id";
+            $productos = $db->select($sql);
             foreach ($productos as $prod) {
                 echo "<tr>
                     <td>{$prod['id']}</td>
                     <td>{$prod['nombre']}</td>
                     <td>{$prod['categoria']}</td>
-                    <td>{$prod['precio']}</td>
+                    <td>\$ {$prod['precio']}</td>
                 </tr>";
             }
             break;

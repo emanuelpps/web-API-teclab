@@ -5,7 +5,7 @@ class Productos
 {
     private $id;
     private $nombre;
-    private $categoria;
+    private $id_categoria;
     private $precio;
     private $db;
 
@@ -25,9 +25,9 @@ class Productos
         $this->nombre = $nombre;
     }
 
-    public function setCategoria($categoria)
+    public function setCategoria($id_categoria)
     {
-        $this->categoria = $categoria;
+        $this->id_categoria = $id_categoria;
     }
 
     public function setPrecio($precio)
@@ -38,9 +38,9 @@ class Productos
     // --- Guardar producto ---
     public function guardar()
     {
-        $sql = "INSERT INTO productos (nombre, categoria, precio) 
-                VALUES (?, ?, ?)";
-        $params = [$this->nombre, $this->categoria, $this->precio];
+        $sql = "INSERT INTO productos (nombre, id_categoria, precio) 
+            VALUES (?, ?, ?)";
+        $params = [$this->nombre, $this->id_categoria, $this->precio];
         return $this->db->insert($sql, $params);
     }
 
@@ -53,10 +53,9 @@ class Productos
     }
     public function listarConCategorias()
     {
-        $db = new DataBase();
-        $sql = "SELECT p.id, p.nombre, p.precio , c.nombre AS categoria 
-                FROM productos p 
-                INNER JOIN categoria c ON p.categoria = c.id";
-        return $db->select($sql);
+        $sql = "SELECT p.id, p.nombre, p.precio, c.nombre AS categoria 
+            FROM productos p 
+            INNER JOIN categoria c ON p.id_categoria = c.id";
+        return $this->db->select($sql);
     }
 }
